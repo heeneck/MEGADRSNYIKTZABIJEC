@@ -1,0 +1,161 @@
+SQL ZÁKLADY
+===========================================================================
+
+
+1. CO JE SQL?
+---------------------------------------------------------------------------
+SQL (Structured Query Language) = jazyk pro práci s relačními databázemi.
+Pomocí něj se data čtou, vkládají, upravují a mažou.
+
+Databáze = tabulky (jako Excel), kde každý řádek je záznam a každý sloupec
+je atribut.
+
+
+2. ZÁKLADNÍ PŘÍKAZY (CRUD)
+---------------------------------------------------------------------------
+
+-- Číst data
+SELECT jmeno, vek FROM uzivatele;
+
+-- Vložit záznam
+INSERT INTO uzivatele (jmeno, vek) VALUES ('Hynek', 18);
+
+-- Upravit záznam
+UPDATE uzivatele SET vek = 19 WHERE jmeno = 'Hynek';
+
+-- Smazat záznam
+DELETE FROM uzivatele WHERE jmeno = 'Hynek';
+
+
+3. SELECT – ZÁKLADNÍ ČTENÍ
+---------------------------------------------------------------------------
+
+SELECT *               -- všechny sloupce
+SELECT jmeno, email    -- konkrétní sloupce
+FROM uzivatele
+WHERE vek > 18         -- filtr
+ORDER BY jmeno ASC     -- řazení (ASC = vzestupně, DESC = sestupně)
+LIMIT 10;              -- max počet řádků
+
+
+4. WHERE – PODMÍNKY
+---------------------------------------------------------------------------
+
+Operátor          Význam
+--------          ------
+=                 rovná se
+!= nebo <>        nerovná se
+>, <, >=, <=      porovnání
+LIKE 'H%'         začíná na H (% = cokoliv)
+IN (1, 2, 3)      je v seznamu
+BETWEEN 10 AND 20 v rozsahu
+IS NULL           je prázdné
+AND, OR, NOT      logické operátory
+
+
+5. JOIN – SPOJENÍ TABULEK
+---------------------------------------------------------------------------
+
+-- INNER JOIN: jen záznamy, kde shoda v obou tabulkách
+SELECT u.jmeno, o.produkt
+FROM uzivatele u
+INNER JOIN objednavky o ON u.id = o.uzivatel_id;
+
+-- LEFT JOIN: všichni uživatelé, i bez objednávky
+SELECT u.jmeno, o.produkt
+FROM uzivatele u
+LEFT JOIN objednavky o ON u.id = o.uzivatel_id;
+
+Zkratka k zapamatování:
+  INNER      = průnik
+  LEFT       = vše z levé tabulky + shody z pravé
+  RIGHT      = opačně
+  FULL OUTER = vše z obou
+
+
+6. AGREGACE A GROUP BY
+---------------------------------------------------------------------------
+
+SELECT zeme, COUNT(*) AS pocet, AVG(vek) AS prumer_vek
+FROM uzivatele
+GROUP BY zeme
+HAVING COUNT(*) > 5;   -- filtr NA skupiny (ne WHERE!)
+ORDER BY pocet DESC;
+
+Agregační funkce:
+  COUNT(*)       počet řádků
+  SUM(sloupec)   součet
+  AVG(sloupec)   průměr
+  MIN / MAX      minimum / maximum
+
+
+7. TVORBA TABULEK
+---------------------------------------------------------------------------
+
+CREATE TABLE uzivatele (
+    id        INT PRIMARY KEY AUTO_INCREMENT,
+    jmeno     VARCHAR(100) NOT NULL,
+    email     VARCHAR(255) UNIQUE,
+    vek       INT CHECK (vek >= 0),
+    vytvoreno DATETIME DEFAULT NOW()
+);
+
+DROP TABLE uzivatele;        -- smazat tabulku
+ALTER TABLE uzivatele ADD COLUMN mesto VARCHAR(100);  -- přidat sloupec
+
+Datové typy:
+  INT              celé číslo
+  FLOAT / DECIMAL  desetinné číslo
+  VARCHAR(n)       text do n znaků
+  TEXT             dlouhý text
+  BOOLEAN          true/false
+  DATE / DATETIME  datum / datum+čas
+
+
+8. KLÍČE A VZTAHY
+---------------------------------------------------------------------------
+
+CREATE TABLE objednavky (
+    id          INT PRIMARY KEY AUTO_INCREMENT,
+    uzivatel_id INT,
+    produkt     VARCHAR(100),
+    FOREIGN KEY (uzivatel_id) REFERENCES uzivatele(id)
+);
+
+PRIMARY KEY   unikátní identifikátor řádku
+FOREIGN KEY   odkaz na PK jiné tabulky
+UNIQUE        hodnota se nesmí opakovat
+NOT NULL      nesmí být prázdné
+
+
+9. SUBQUERY (PODDOTAZ)
+---------------------------------------------------------------------------
+
+-- Uživatelé starší než průměr
+SELECT jmeno FROM uzivatele
+WHERE vek > (SELECT AVG(vek) FROM uzivatele);
+
+-- EXISTS
+SELECT jmeno FROM uzivatele u
+WHERE EXISTS (
+    SELECT 1 FROM objednavky o WHERE o.uzivatel_id = u.id
+);
+
+
+10. UŽITEČNÉ ZKRATKY
+---------------------------------------------------------------------------
+
+-- Aliasy
+SELECT jmeno AS name, vek AS age FROM uzivatele u;
+
+-- Distinct (bez duplikátů)
+SELECT DISTINCT zeme FROM uzivatele;
+
+
+ZLATÉ PRAVIDLO – POŘADÍ VYKONÁVÁNÍ:
+===========================================================================
+FROM → JOIN → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT
+
+To je důvod, proč nemůžeš použít alias ze SELECT ve WHERE —
+WHERE se vyhodnotí dřív.
+===========================================================================
