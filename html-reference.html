@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Přehled základních HTML příkazů">
+  <meta name="author" content="Tuka Studio">
+  <title>Přehled základních HTML tagů</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; background: #f5f5f5; color: #222; }
+    h1 { background: #2c3e50; color: white; padding: 16px; border-radius: 6px; }
+    h2 { background: #34495e; color: white; padding: 10px 14px; border-radius: 4px; margin-top: 40px; }
+    h3 { color: #2c3e50; border-left: 4px solid #2c3e50; padding-left: 10px; }
+    .tag-box { background: white; border: 1px solid #ddd; border-radius: 6px; padding: 16px; margin: 12px 0; }
+    .tag-box code { background: #eef; padding: 2px 6px; border-radius: 3px; font-size: 0.95em; color: #c0392b; }
+    .tag-box p { margin: 6px 0; color: #555; }
+    .ukazka { background: #f9f9f9; border-left: 3px solid #27ae60; padding: 10px 14px; margin-top: 10px; border-radius: 0 4px 4px 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #aaa; padding: 8px 12px; text-align: left; }
+    th { background: #2c3e50; color: white; }
+    tr:nth-child(even) { background: #f0f0f0; }
+    form { background: #f9f9f9; padding: 14px; border: 1px solid #ccc; border-radius: 6px; }
+    input, textarea, select, button { margin: 4px 0; padding: 6px 10px; font-size: 1em; }
+    button { background: #2c3e50; color: white; border: none; border-radius: 4px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📄 Přehled základních HTML tagů</h1>
+  <p>Referenční stránka pro seminární práci z IKT — ukázky všech základních HTML prvků s popisem.</p>
+</header>
+
+<nav>
+  <h2>Obsah</h2>
+  <ul>
+    <li><a href="#struktura">1. Struktura dokumentu</a></li>
+    <li><a href="#nadpisy">2. Nadpisy</a></li>
+    <li><a href="#text">3. Textové formátování</a></li>
+    <li><a href="#seznamy">4. Seznamy</a></li>
+    <li><a href="#odkazy">5. Odkazy a obrázky</a></li>
+    <li><a href="#tabulky">6. Tabulky</a></li>
+    <li><a href="#formulare">7. Formuláře</a></li>
+    <li><a href="#semantika">8. Sémantické elementy</a></li>
+    <li><a href="#media">9. Média</a></li>
+    <li><a href="#ostatni">10. Ostatní</a></li>
+  </ul>
+</nav>
+
+<!-- ==================== 1. STRUKTURA ==================== -->
+<section id="struktura">
+  <h2>1. Struktura dokumentu</h2>
+
+  <div class="tag-box">
+    <h3><code>&lt;!DOCTYPE html&gt;</code></h3>
+    <p>Deklarace typu dokumentu. Říká prohlížeči, že jde o HTML5. Vždy na prvním řádku.</p>
+    <div class="ukazka"><code>&lt;!DOCTYPE html&gt;</code></div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;html&gt;</code></h3>
+    <p>Kořenový element celé stránky. Atribut <code>lang</code> nastavuje jazyk.</p>
+    <div class="ukazka"><code>&lt;html lang="cs"&gt; ... &lt;/html&gt;</code></div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;head&gt;</code></h3>
+    <p>Obsahuje metadata — informace o stránce, které se nezobrazují přímo v obsahu.</p>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;title&gt;</code></h3>
+    <p>Název stránky zobrazovaný v záložce prohlížeče a ve výsledcích vyhledávačů.</p>
+    <div class="ukazka"><code>&lt;title&gt;Moje stránka&lt;/title&gt;</code></div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;meta&gt;</code></h3>
+    <p>Metadata stránky — kódování, popis, klíčová slova, autor, viewport pro mobily.</p>
+    <div class="ukazka">
+      <code>&lt;meta charset="UTF-8"&gt;</code><br>
+      <code>&lt;meta name="description" content="Popis stránky"&gt;</code><br>
+      <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>
+    </div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;link&gt;</code></h3>
+    <p>Propojuje dokument s externími zdroji, nejčastěji CSS soubory nebo favicon.</p>
+    <div class="ukazka"><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;script&gt;</code></h3>
+    <p>Vkládá JavaScript — buď přímo nebo odkazem na soubor.</p>
+    <div class="ukazka"><code>&lt;script src="script.js"&gt;&lt;/script&gt;</code></div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;style&gt;</code></h3>
+    <p>Vkládá CSS styly přímo do HTML dokumentu (interní CSS).</p>
+    <div class="ukazka"><code>&lt;style&gt; body { color: red; } &lt;/style&gt;</code></div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;body&gt;</code></h3>
+    <p>Obsahuje veškerý viditelný obsah stránky.</p>
+  </div>
+</section>
+
+<!-- ==================== 2. NADPISY ==================== -->
+<section id="nadpisy">
+  <h2>2. Nadpisy</h2>
+
+  <div class="tag-box">
+    <h3><code>&lt;h1&gt; až &lt;h6&gt;</code></h3>
+    <p>Šest úrovní nadpisů. <code>h1</code> je největší a nejdůležitější (měl by být jen jeden na stránce), <code>h6</code> nejmenší.</p>
+    <div class="ukazka">
+      <h1 style="font-size:1.8em;margin:4px 0">h1 — Hlavní nadpis</h1>
+      <h2 style="font-size:1.5em;margin:4px 0;background:none;color:#222;padding:0">h2 — Nadpis sekce</h2>
+      <h3 style="border:none;margin:4px 0">h3 — Podnadpis</h3>
+      <h4 style="margin:4px 0">h4 — Menší nadpis</h4>
+      <h5 style="margin:4px 0">h5 — Ještě menší</h5>
+      <h6 style="margin:4px 0">h6 — Nejmenší nadpis</h6>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 3. TEXT ==================== -->
+<section id="text">
+  <h2>3. Textové formátování</h2>
+
+  <div class="tag-box">
+    <h3><code>&lt;p&gt;</code></h3>
+    <p>Odstavec textu. Základní blokový element pro text.</p>
+    <div class="ukazka"><p>Toto je odstavec textu.</p></div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;br&gt;</code></h3>
+    <p>Zalomení řádku bez nového odstavce. Samouzavírací tag.</p>
+    <div class="ukazka">První řádek<br>Druhý řádek</div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;hr&gt;</code></h3>
+    <p>Horizontální oddělovací čára. Samouzavírací tag.</p>
+    <div class="ukazka"><hr></div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;strong&gt;</code> a <code>&lt;b&gt;</code></h3>
+    <p><code>&lt;strong&gt;</code> — tučný text se sémantickým významem (důležitost). <code>&lt;b&gt;</code> — jen vizuálně tučný.</p>
+    <div class="ukazka"><strong>Důležitý text</strong> &nbsp;|&nbsp; <b>Tučný text</b></div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;em&gt;</code> a <code>&lt;i&gt;</code></h3>
+    <p><code>&lt;em&gt;</code> — kurzíva se sémantickým důrazem. <code>&lt;i&gt;</code> — jen vizuálně kurzíva.</p>
+    <div class="ukazka"><em>Zdůrazněný text</em> &nbsp;|&nbsp; <i>Kurzíva</i></div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;u&gt;</code></h3>
+    <p>Podtržený text.</p>
+    <div class="ukazka"><u>Podtržený text</u></div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;s&gt;</code> a <code>&lt;del&gt;</code></h3>
+    <p><code>&lt;s&gt;</code> — přeškrtnutý text (neaktuální). <code>&lt;del&gt;</code> — smazaný text (editační změna).</p>
+    <div class="ukazka"><s>Stará cena: 500 Kč</s> &nbsp;|&nbsp; <del>Smazaný text</del></div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;ins&gt;</code></h3>
+    <p>Vložený (nový) text, obvykle podtržený — protiklad k <code>&lt;del&gt;</code>.</p>
+    <div class="ukazka"><ins>Vložený text</ins></div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;mark&gt;</code></h3>
+    <p>Zvýrazněný text (žluté pozadí jako zvýrazňovač).</p>
+    <div class="ukazka">Text s <mark>zvýraznením</mark> uprostřed.</div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;small&gt;</code></h3>
+    <p>Menší text — poznámky pod čarou, copyright apod.</p>
+    <div class="ukazka">Normální text <small>a malý text</small></div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;sub&gt;</code> a <code>&lt;sup&gt;</code></h3>
+    <p>Dolní index (<code>sub</code>) a horní index (<code>sup</code>).</p>
+    <div class="ukazka">H<sub>2</sub>O &nbsp;|&nbsp; E = mc<sup>2</sup></div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;blockquote&gt;</code></h3>
+    <p>Dlouhý citát z externího zdroje. Zobrazuje se jako odsazený blok.</p>
+    <div class="ukazka">
+      <blockquote cite="https://example.com">"Kód by měl být psán tak, aby ho přečetl člověk, a jen náhodou i počítač."</blockquote>
+    </div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;q&gt;</code></h3>
+    <p>Krátký inline citát. Prohlížeč automaticky přidá uvozovky.</p>
+    <div class="ukazka">Jak řekl Jobs: <q>Stay hungry, stay foolish.</q></div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;abbr&gt;</code></h3>
+    <p>Zkratka nebo akronym. Atribut <code>title</code> zobrazí plný název při najetí myší.</p>
+    <div class="ukazka"><abbr title="HyperText Markup Language">HTML</abbr> je základ webu.</div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;code&gt;</code></h3>
+    <p>Inline kód — zobrazí se neproporcionálním písmem.</p>
+    <div class="ukazka">Proměnná <code>int x = 5;</code> je celé číslo.</div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;pre&gt;</code></h3>
+    <p>Předformátovaný text — zachovává mezery a zalomení řádků. Vhodné pro bloky kódu.</p>
+    <div class="ukazka">
+      <pre>int main() {
+    printf("Hello, World!");
+    return 0;
+}</pre>
+    </div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;kbd&gt;</code></h3>
+    <p>Klávesová zkratka nebo vstup z klávesnice.</p>
+    <div class="ukazka">Uložte soubor pomocí <kbd>Ctrl</kbd> + <kbd>S</kbd></div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;span&gt;</code></h3>
+    <p>Inline kontejner bez sémantiky — slouží k aplikaci CSS nebo JavaScriptu na část textu.</p>
+    <div class="ukazka">Text s <span style="color:red">červenou</span> barvou.</div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;div&gt;</code></h3>
+    <p>Blokový kontejner bez sémantiky — nejpoužívanější element pro rozvržení stránky.</p>
+    <div class="ukazka"><div style="border:1px solid #aaa;padding:8px">Obsah div bloku</div></div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;address&gt;</code></h3>
+    <p>Kontaktní informace autora nebo vlastníka dokumentu.</p>
+    <div class="ukazka">
+      <address>
+        Autor: Jan Novák<br>
+        Email: novak@example.com<br>
+        Praha, Česká republika
+      </address>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 4. SEZNAMY ==================== -->
+<section id="seznamy">
+  <h2>4. Seznamy</h2>
+
+  <div class="tag-box">
+    <h3><code>&lt;ul&gt;</code> — nečíslovaný seznam</h3>
+    <p>Neuspořádaný seznam s odrážkami. Položky jsou <code>&lt;li&gt;</code>.</p>
+    <div class="ukazka">
+      <ul>
+        <li>Jablko</li>
+        <li>Banán</li>
+        <li>Pomeranč</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;ol&gt;</code> — číslovaný seznam</h3>
+    <p>Uspořádaný seznam s čísly. Atributy <code>type</code> (1, A, a, I, i) a <code>start</code>.</p>
+    <div class="ukazka">
+      <ol>
+        <li>Otevři editor</li>
+        <li>Napiš kód</li>
+        <li>Ulož soubor</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;dl&gt;</code> — definiční seznam</h3>
+    <p>Seznam pojmů a jejich definic. <code>&lt;dt&gt;</code> = pojem, <code>&lt;dd&gt;</code> = definice.</p>
+    <div class="ukazka">
+      <dl>
+        <dt><strong>HTML</strong></dt>
+        <dd>Jazyk pro tvorbu struktury webových stránek.</dd>
+        <dt><strong>CSS</strong></dt>
+        <dd>Jazyk pro stylování webových stránek.</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 5. ODKAZY A OBRÁZKY ==================== -->
+<section id="odkazy">
+  <h2>5. Odkazy a obrázky</h2>
+
+  <div class="tag-box">
+    <h3><code>&lt;a&gt;</code> — odkaz (anchor)</h3>
+    <p>Hypertextový odkaz. Atribut <code>href</code> = cíl, <code>target="_blank"</code> = otevřít v nové záložce, <code>rel="noopener"</code> = bezpečnost.</p>
+    <div class="ukazka">
+      <a href="https://www.google.com" target="_blank" rel="noopener">Odkaz na Google</a><br>
+      <a href="#nadpisy">Odkaz na sekci na stránce (#kotva)</a><br>
+      <a href="mailto:info@example.com">Email odkaz</a><br>
+      <a href="tel:+420123456789">Telefonní odkaz</a>
+    </div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;img&gt;</code> — obrázek</h3>
+    <p>Vkládá obrázek. <code>src</code> = cesta k souboru, <code>alt</code> = alternativní text (povinný!), <code>width</code> a <code>height</code> = rozměry.</p>
+    <div class="ukazka">
+      <img src="https://via.placeholder.com/200x100" alt="Ukázkový obrázek 200x100" width="200" height="100">
+      <br><code>&lt;img src="obrazek.jpg" alt="Popis obrázku" width="200" height="100"&gt;</code>
+    </div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;figure&gt;</code> a <code>&lt;figcaption&gt;</code></h3>
+    <p>Sémantický obal pro obrázek (nebo jiný media obsah) s popiskem.</p>
+    <div class="ukazka">
+      <figure>
+        <img src="https://via.placeholder.com/150x80" alt="Ukázkový obrázek" width="150">
+        <figcaption>Obr. 1 — Ukázkový obrázek s popiskem</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 6. TABULKY ==================== -->
+<section id="tabulky">
+  <h2>6. Tabulky</h2>
+
+  <div class="tag-box">
+    <h3><code>&lt;table&gt;, &lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt;, &lt;tr&gt;, &lt;th&gt;, &lt;td&gt;</code></h3>
+    <p>
+      <code>&lt;table&gt;</code> — celá tabulka<br>
+      <code>&lt;thead&gt;</code> — hlavička tabulky<br>
+      <code>&lt;tbody&gt;</code> — tělo tabulky<br>
+      <code>&lt;tfoot&gt;</code> — patička tabulky<br>
+      <code>&lt;tr&gt;</code> — řádek (table row)<br>
+      <code>&lt;th&gt;</code> — záhlaví sloupce (tučně, na střed)<br>
+      <code>&lt;td&gt;</code> — datová buňka<br>
+      <code>colspan</code> / <code>rowspan</code> — sloučení buněk
+    </p>
+    <div class="ukazka">
+      <table>
+        <caption>Tabulka studentů</caption>
+        <thead>
+          <tr>
+            <th>Jméno</th>
+            <th>Předmět</th>
+            <th>Známka</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Jan Novák</td>
+            <td>Matematika</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>Eva Dvořák</td>
+            <td>Fyzika</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td colspan="2">Průměr třídy</td>
+            <td>1.5</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3"><small>Školní rok 2025/2026</small></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 7. FORMULÁŘE ==================== -->
+<section id="formulare">
+  <h2>7. Formuláře</h2>
+
+  <div class="tag-box">
+    <h3>Všechny základní formulářové elementy</h3>
+    <p>
+      <code>&lt;form&gt;</code> — formulář, <code>action</code> = cíl, <code>method</code> = GET/POST<br>
+      <code>&lt;input&gt;</code> — vstupní pole (typ určuje <code>type</code>)<br>
+      <code>&lt;label&gt;</code> — popisek pro vstupní pole (<code>for</code> = <code>id</code> inputu)<br>
+      <code>&lt;textarea&gt;</code> — víceřádkové textové pole<br>
+      <code>&lt;select&gt;</code> + <code>&lt;option&gt;</code> — rozbalovací seznam<br>
+      <code>&lt;button&gt;</code> — tlačítko<br>
+      <code>&lt;fieldset&gt;</code> + <code>&lt;legend&gt;</code> — seskupení polí s nadpisem<br>
+      <code>&lt;datalist&gt;</code> — napovídání hodnot pro input
+    </p>
+    <div class="ukazka">
+      <form action="#" method="get">
+
+        <fieldset>
+          <legend>Osobní údaje</legend>
+
+          <label for="jmeno">Jméno (text):</label><br>
+          <input type="text" id="jmeno" name="jmeno" placeholder="Jan Novák" required><br><br>
+
+          <label for="email">Email:</label><br>
+          <input type="email" id="email" name="email" placeholder="jan@example.com"><br><br>
+
+          <label for="heslo">Heslo:</label><br>
+          <input type="password" id="heslo" name="heslo" placeholder="••••••••"><br><br>
+
+          <label for="vek">Věk (number):</label><br>
+          <input type="number" id="vek" name="vek" min="1" max="120" value="18"><br><br>
+
+          <label for="datum">Datum narození:</label><br>
+          <input type="date" id="datum" name="datum"><br><br>
+
+          <label for="cas">Čas:</label><br>
+          <input type="time" id="cas" name="cas"><br><br>
+
+          <label for="barva">Oblíbená barva:</label><br>
+          <input type="color" id="barva" name="barva" value="#2c3e50"><br><br>
+
+          <label for="rozsah">Hodnocení (range):</label><br>
+          <input type="range" id="rozsah" name="rozsah" min="1" max="10" value="5"> (1–10)<br><br>
+
+          <label for="soubor">Nahrát soubor:</label><br>
+          <input type="file" id="soubor" name="soubor"><br><br>
+
+          <label for="telefon">Telefon:</label><br>
+          <input type="tel" id="telefon" name="telefon" placeholder="+420 123 456 789"><br><br>
+
+          <label for="url">Web:</label><br>
+          <input type="url" id="url" name="url" placeholder="https://example.com"><br><br>
+        </fieldset>
+
+        <br>
+        <fieldset>
+          <legend>Preference</legend>
+
+          <label for="predmet">Oblíbený předmět (select):</label><br>
+          <select id="predmet" name="predmet">
+            <optgroup label="Přírodní vědy">
+              <option value="mat">Matematika</option>
+              <option value="fyz">Fyzika</option>
+            </optgroup>
+            <optgroup label="Jazyky">
+              <option value="cj">Čeština</option>
+              <option value="aj">Angličtina</option>
+            </optgroup>
+          </select><br><br>
+
+          <label>Pohlaví (radio):</label><br>
+          <input type="radio" id="muz" name="pohlavi" value="muz">
+          <label for="muz">Muž</label>
+          <input type="radio" id="zena" name="pohlavi" value="zena">
+          <label for="zena">Žena</label><br><br>
+
+          <label>Zájmy (checkbox):</label><br>
+          <input type="checkbox" id="sport" name="zajmy" value="sport">
+          <label for="sport">Sport</label>
+          <input type="checkbox" id="hudba" name="zajmy" value="hudba">
+          <label for="hudba">Hudba</label>
+          <input type="checkbox" id="pc" name="zajmy" value="pc" checked>
+          <label for="pc">Počítače</label><br><br>
+
+          <label for="poznamka">Poznámka (textarea):</label><br>
+          <textarea id="poznamka" name="poznamka" rows="4" cols="40" placeholder="Napište cokoliv..."></textarea><br><br>
+
+          <label for="mesto">Město (datalist — napovídání):</label><br>
+          <input type="text" id="mesto" name="mesto" list="mesta" placeholder="Začněte psát...">
+          <datalist id="mesta">
+            <option value="Praha">
+            <option value="Brno">
+            <option value="Ostrava">
+            <option value="Plzeň">
+          </datalist><br><br>
+        </fieldset>
+
+        <br>
+        <!-- Skrytý input -->
+        <input type="hidden" name="zdroj" value="html-reference">
+
+        <button type="submit">Odeslat formulář</button>
+        <button type="reset">Resetovat</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 8. SÉMANTIKA ==================== -->
+<section id="semantika">
+  <h2>8. Sémantické elementy (HTML5)</h2>
+  <p>Sémantické elementy mají smysluplný název, který popisuje jejich obsah. Pomáhají vyhledávačům (SEO) i přístupnosti.</p>
+
+  <div class="tag-box">
+    <h3><code>&lt;header&gt;</code></h3>
+    <p>Záhlaví stránky nebo sekce — logo, navigace, nadpis. Na stránce může být více headerů.</p>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;nav&gt;</code></h3>
+    <p>Navigační menu — obsahuje odkazy pro navigaci po stránce nebo webu.</p>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;main&gt;</code></h3>
+    <p>Hlavní obsah stránky. Na stránce by měl být jen jeden <code>&lt;main&gt;</code>.</p>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;section&gt;</code></h3>
+    <p>Tematická sekce dokumentu, obvykle s vlastním nadpisem.</p>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;article&gt;</code></h3>
+    <p>Samostatný, přenositelný obsah — blogový příspěvek, novinový článek, komentář.</p>
+    <div class="ukazka">
+      <article style="border:1px solid #ccc;padding:10px">
+        <h4>Titulek článku</h4>
+        <p>Text článku, který by dával smysl i bez kontextu zbytku webu.</p>
+        <footer><small>Autor: Jan Novák | 18. 5. 2026</small></footer>
+      </article>
+    </div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;aside&gt;</code></h3>
+    <p>Vedlejší obsah — sidebar, poznámky, reklamy, související odkazy.</p>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;footer&gt;</code></h3>
+    <p>Zápatí stránky nebo sekce — copyright, kontakty, sitemap.</p>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;time&gt;</code></h3>
+    <p>Datum nebo čas v čitelném formátu. Atribut <code>datetime</code> je pro strojové zpracování.</p>
+    <div class="ukazka">Publikováno: <time datetime="2026-05-18">18. května 2026</time></div>
+  </div>
+</section>
+
+<!-- ==================== 9. MÉDIA ==================== -->
+<section id="media">
+  <h2>9. Média</h2>
+
+  <div class="tag-box">
+    <h3><code>&lt;audio&gt;</code></h3>
+    <p>Přehrávač zvuku. Atributy: <code>controls</code> (zobrazí ovládání), <code>autoplay</code>, <code>loop</code>, <code>muted</code>. Více formátů = fallback.</p>
+    <div class="ukazka">
+      <code>&lt;audio controls&gt;<br>
+      &nbsp;&nbsp;&lt;source src="zvuk.mp3" type="audio/mpeg"&gt;<br>
+      &nbsp;&nbsp;&lt;source src="zvuk.ogg" type="audio/ogg"&gt;<br>
+      &nbsp;&nbsp;Váš prohlížeč nepodporuje audio.<br>
+      &lt;/audio&gt;</code>
+    </div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;video&gt;</code></h3>
+    <p>Přehrávač videa. Stejné atributy jako audio + <code>width</code>, <code>height</code>, <code>poster</code> (náhledový obrázek).</p>
+    <div class="ukazka">
+      <code>&lt;video controls width="400" poster="nahled.jpg"&gt;<br>
+      &nbsp;&nbsp;&lt;source src="video.mp4" type="video/mp4"&gt;<br>
+      &nbsp;&nbsp;Váš prohlížeč nepodporuje video.<br>
+      &lt;/video&gt;</code>
+    </div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;iframe&gt;</code></h3>
+    <p>Vkládá jiný webový dokument nebo obsah (YouTube video, mapa) přímo do stránky.</p>
+    <div class="ukazka">
+      <code>&lt;iframe src="https://www.youtube.com/embed/VIDEO_ID" width="560" height="315" allowfullscreen&gt;&lt;/iframe&gt;</code>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 10. OSTATNÍ ==================== -->
+<section id="ostatni">
+  <h2>10. Ostatní užitečné elementy</h2>
+
+  <div class="tag-box">
+    <h3><code>&lt;details&gt;</code> a <code>&lt;summary&gt;</code></h3>
+    <p>Rozbalovací obsah — kliknutím na summary se zobrazí nebo skryje zbytek.</p>
+    <div class="ukazka">
+      <details>
+        <summary>Klikni pro zobrazení detailu</summary>
+        <p>Toto je skrytý obsah, který se zobrazí po rozbalení. Funguje bez JavaScriptu!</p>
+      </details>
+    </div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;progress&gt;</code></h3>
+    <p>Ukazatel průběhu. Atributy <code>value</code> a <code>max</code>.</p>
+    <div class="ukazka">
+      Staženo: <progress value="65" max="100">65%</progress> 65 %
+    </div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;meter&gt;</code></h3>
+    <p>Měřidlo v daném rozsahu (na rozdíl od progress není pro průběh). <code>min</code>, <code>max</code>, <code>low</code>, <code>high</code>, <code>optimum</code>.</p>
+    <div class="ukazka">
+      Baterie: <meter value="0.7" min="0" max="1" low="0.2" high="0.8" optimum="1">70%</meter> 70 %
+    </div>
+  </div>
+
+  <div class="tag-box">
+    <h3><code>&lt;!-- komentář --&gt;</code></h3>
+    <p>HTML komentář — neviditelný v prohlížeči, slouží pro poznámky v kódu.</p>
+    <div class="ukazka"><code>&lt;!-- Toto je komentář, prohlížeč ho nezobrazí --&gt;</code></div>
+  </div>
+
+  <div class="tag-box">
+    <h3>HTML entity</h3>
+    <p>Speciální znaky, které nelze napsat přímo v HTML (nebo mají v HTML zvláštní význam).</p>
+    <div class="ukazka">
+      <table>
+        <tr><th>Entita</th><th>Znak</th><th>Popis</th></tr>
+        <tr><td><code>&amp;amp;</code></td><td>&amp;</td><td>Ampersand</td></tr>
+        <tr><td><code>&amp;lt;</code></td><td>&lt;</td><td>Menší než</td></tr>
+        <tr><td><code>&amp;gt;</code></td><td>&gt;</td><td>Větší než</td></tr>
+        <tr><td><code>&amp;nbsp;</code></td><td>&nbsp;</td><td>Nedělitelná mezera</td></tr>
+        <tr><td><code>&amp;copy;</code></td><td>&copy;</td><td>Copyright</td></tr>
+        <tr><td><code>&amp;reg;</code></td><td>&reg;</td><td>Registrovaná ochranná známka</td></tr>
+        <tr><td><code>&amp;euro;</code></td><td>&euro;</td><td>Euro</td></tr>
+        <tr><td><code>&amp;mdash;</code></td><td>&mdash;</td><td>Pomlčka (em dash)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="tag-box">
+    <h3>Globální atributy (použitelné na jakémkoli elementu)</h3>
+    <p>
+      <code>id</code> — unikátní identifikátor elementu<br>
+      <code>class</code> — CSS třída (může jich být více)<br>
+      <code>style</code> — inline CSS styly<br>
+      <code>title</code> — tooltip při najetí myší<br>
+      <code>lang</code> — jazyk obsahu elementu<br>
+      <code>hidden</code> — skryje element<br>
+      <code>tabindex</code> — pořadí při navigaci klávesou Tab<br>
+      <code>data-*</code> — vlastní datové atributy (pro JavaScript)
+    </p>
+    <div class="ukazka">
+      <span id="muj-span" class="zvyrazneno" title="Toto je tooltip" data-info="vlastní data">
+        Najeď myší pro tooltip
+      </span>
+    </div>
+  </div>
+</section>
+
+<footer style="margin-top:40px;padding:16px;background:#2c3e50;color:white;border-radius:6px;text-align:center;">
+  <p>&copy; 2026 — HTML Reference | Seminární práce z IKT</p>
+  <p><small>Vytvořeno v čistém HTML &amp; CSS — bez JavaScriptu a frameworků</small></p>
+</footer>
+
+</body>
+</html>
