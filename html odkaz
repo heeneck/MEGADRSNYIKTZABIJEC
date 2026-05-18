@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<H1> Databaze vydavatelu interpretu a alb </H1>
+<P> databaze slouzi k zaznamenavani vydavatelu hudby interpretu a jejich alb</P>
+<H2> tabulka vydavatele </H2>
+<p> tabulka zaznamenava nazev vydavatele a datum vzniku. Ma vztah s tabulkou interpreti a to nadrazeny </p>
+<H3> vkladani do tabulky vydavatele: </H3>
+<a href = "https://baserow.io/form/O8zkIDE8oRR8V1bjOuTjF-x1gDE5Q84CfVtmRARzzmo" > odkaz na vkladani vydavatele </a>
+<H2> Tabulka interpreti </H2>
+<a> tabulka zaznamenava nazev interpreta, zacatek kariery, zdali je stale aktivni a jake vydavatele vyuzil. Ma vztah s tabulkou vydavatele a je ji podrazeny a ma vztah s tabulkou alba a je ji nadrazeny </a>
+<H3> prehled interpreta v databazi </H3>
+<a href = "https://baserow.io/public/gallery/PWfP7Xbnt39Nef5FDeYYLTONlyiH2qloPXvEETEVjNU" > odkaz na tabulku interpreta </a>
+<H3> vkladani do tabulky interpreta: </H3>
+<a href = "https://baserow.io/form/JjT5UhtHRv6PUJ6DO-eAHSw7VA_ZI77I5GjdBpLvmo0" > odkaz na vkladani interpreta <a/>
+<H2> tabulka alba </H2>
+<a> tabulka zaznamenava nazev alba, pocet skladeb, datum vydani a jaky nazev interpreti za album stoji. Ma vztah s tabulkou interpreti a je ji podrazeny.</a>
+<H3> prehled alb v databazi </H3>
+<a href = "https://baserow.io/public/gallery/1zK7kBY9s40FfaTHGlJ6qq4N2MVxkcOaK0f2ZzgJJL0" > odkaz na tabulku s prehledem alb </a>
+<H3> vkladani do tabulky alba </H3>
+<a href= "https://baserow.io/form/I80mYqTRwi6aoXiUDNl7dAnPiHijy_K2nIkkD5je4dI" > odkaz na vkladani noveho alba </a>
+<p> Viola Rajdlova, 2026 <p>
