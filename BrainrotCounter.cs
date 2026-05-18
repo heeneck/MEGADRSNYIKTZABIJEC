@@ -1,58 +1,31 @@
 using System;
-using System.Collections.Generic;
 
-class BrainrotCounter
+class TeplotyVTydnu
 {
     static void Main()
     {
-        string[] brainrotSlova = {
-            "skibidi", "rizz", "sigma", "ohio", "gyatt", "fanum", "mewing",
-            "bussin", "slay", "based", "no cap", "fr fr", "lowkey", "highkey",
-            "delulu", "sus", "goated", "mid", "npc", "ratio", "L", "W", "touch grass"
-        };
+        double[] teploty = new double[7];
+        string[] dny = { "Pondeli", "Utery", "Streda", "Ctvrtek", "Patek", "Sobota", "Nedele" };
 
-        List<string> brainrotVety = new List<string>();
-
-        Console.WriteLine("=== Brainrot Counter ===");
-        Console.WriteLine("Zadávejte věty (pro ukončení napište STOP):\n");
-
-        while (true)
+        for (int i = 0; i < 7; i++)
         {
-            Console.Write("> ");
-            string veta = Console.ReadLine();
-
-            if (veta.Trim().ToUpper() == "STOP")
-                break;
-
-            string vetaLower = veta.ToLower();
-            bool obsahujeBrainrot = false;
-
-            foreach (string slovo in brainrotSlova)
-            {
-                if (vetaLower.Contains(slovo))
-                {
-                    obsahujeBrainrot = true;
-                    break;
-                }
-            }
-
-            if (obsahujeBrainrot)
-                brainrotVety.Add(veta);
+            Console.Write(dny[i] + ": ");
+            teploty[i] = double.Parse(Console.ReadLine());
         }
 
-        Console.WriteLine("\n=== Výsledky ===");
+        double soucet = 0;
+        double max = teploty[0];
+        double min = teploty[0];
 
-        if (brainrotVety.Count == 0)
+        for (int i = 0; i < 7; i++)
         {
-            Console.WriteLine("Žádné brainrot věty nebyly detekovány.");
+            soucet += teploty[i];
+            if (teploty[i] > max) max = teploty[i];
+            if (teploty[i] < min) min = teploty[i];
         }
-        else
-        {
-            Console.WriteLine("Brainrot věty:");
-            foreach (string v in brainrotVety)
-                Console.WriteLine($"  - {v}");
 
-            Console.WriteLine($"\nBrainrot detekován v {brainrotVety.Count} větách.");
-        }
+        Console.WriteLine("Prumer: " + soucet / 7);
+        Console.WriteLine("Nejvyssi: " + max);
+        Console.WriteLine("Nejnizsi: " + min);
     }
 }
