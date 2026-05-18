@@ -29,3 +29,90 @@ class TeplotyVTydnu
         Console.WriteLine("Nejnizsi: " + min);
     }
 }
+using System;
+
+class TeplotyVTydnu
+{
+    static void Main()
+    {
+        double[] teploty = new double[7];
+        string[] dny = { "Pondeli", "Utery", "Streda", "Ctvrtek", "Patek", "Sobota", "Nedele" };
+
+        // Input with validation
+        for (int i = 0; i < teploty.Length; i++)
+        {
+            while (true)
+            {
+                Console.Write(dny[i] + ": ");
+                string vstup = Console.ReadLine();
+
+                if (double.TryParse(vstup, out teploty[i]))
+                    break;
+
+                Console.WriteLine("Neplatny vstup. Zadej cislo (napr. 12.5).");
+            }
+        }
+
+        // Calculation
+        double soucet = 0;
+        double max = teploty[0];
+        double min = teploty[0];
+
+        for (int i = 0; i < teploty.Length; i++)
+        {
+            soucet += teploty[i];
+            if (teploty[i] > max) max = teploty[i];
+            if (teploty[i] < min) min = teploty[i];
+        }
+
+        double prumer = soucet / teploty.Length;
+
+        // Output
+        Console.WriteLine($"\nPrumer:   {prumer:F1} °C");
+        Console.WriteLine($"Nejvyssi: {max:F1} °C");
+        Console.WriteLine($"Nejnizsi: {min:F1} °C");
+    }
+using System;
+
+class TeplotyVTydnu
+{
+    static void Main()
+    {
+        double[] teploty = new double[7];
+        string[] dny = { "Pondeli", "Utery", "Streda", "Ctvrtek", "Patek", "Sobota", "Nedele" };
+
+        // Input with validation
+        for (int i = 0; i < teploty.Length; i++)
+        {
+            while (true)
+            {
+                Console.Write(dny[i] + ": ");
+                string vstup = Console.ReadLine();
+
+                if (double.TryParse(vstup, out teploty[i]))
+                    break;
+
+                Console.WriteLine("Neplatny vstup. Zadej cislo (napr. 12.5).");
+            }
+        }
+
+        // Calculation
+        double soucet = 0;
+        double max = teploty[0];
+        double min = teploty[0];
+
+        for (int i = 0; i < teploty.Length; i++)
+        {
+            soucet += teploty[i];
+            if (teploty[i] > max) max = teploty[i];
+            if (teploty[i] < min) min = teploty[i];
+        }
+
+        double prumer = soucet / teploty.Length;
+
+        // Output
+        Console.WriteLine($"\nPrumer:   {prumer:F1} °C");
+        Console.WriteLine($"Nejvyssi: {max:F1} °C");
+        Console.WriteLine($"Nejnizsi: {min:F1} °C");
+    }
+}
